@@ -1,7 +1,7 @@
 public class Employee {
-    private String firstName;
-    private String lastName;
-    private String socialSecurityNumber;
+    private final String firstName;
+    private final String lastName;
+    private final String socialSecurityNumber;
     CompensationModel compensationModel;
 
     public Employee(String firstName, String lastName, String socialSecurityNumber, CompensationModel compensationModel) {
@@ -15,24 +15,12 @@ public class Employee {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;
-    }
-
-    public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
     }
 
     public CompensationModel getCompensationModel() {
@@ -40,15 +28,15 @@ public class Employee {
     }
 
     public void changeCompensationModel(double grossSales,double commissionRate,double baseSalary) {
-        if (compensationModel.toString().equalsIgnoreCase("Commission compensation model"))
+        if(compensationModel instanceof CommissionCompensationModel)
             this.compensationModel=new BasePlusCommissionCompensationModel(grossSales,commissionRate,baseSalary);
 
-        else if (compensationModel.toString().equalsIgnoreCase("Base plus commission compensation model"))
+        else if (compensationModel instanceof BasePlusCommissionCompensationModel)
             this.compensationModel=new CommissionCompensationModel(grossSales,commissionRate);
     }//end of setCompensationModel
 
     public double earnings(){
-       return compensationModel.earnings();
+        return compensationModel.earnings();
     }//end of earnings
 
     @Override
