@@ -3,17 +3,16 @@ public class CommissionCompensationModel extends CompensationModel {
     private double commissionRate;
 
     public CommissionCompensationModel(double grossSales, double commissionRate) {
-        if(grossSales<0)
+        if (grossSales < 0)
             throw new IllegalArgumentException();
         else
-        this.grossSales = grossSales;
+            this.grossSales = grossSales;
 
-        if (commissionRate<0||commissionRate>1)
+        if (commissionRate < 0 || commissionRate > 1)
             throw new IllegalArgumentException();
         else
-        this.commissionRate = commissionRate;
+            this.commissionRate = commissionRate;
     }
-
 
     public double getGrossSales() {
         return grossSales;
@@ -33,7 +32,7 @@ public class CommissionCompensationModel extends CompensationModel {
 
     @Override
     public double earnings() {
-        return getGrossSales()*getCommissionRate();
+        return getGrossSales() * getCommissionRate();
     }//return earnings
 
     @Override

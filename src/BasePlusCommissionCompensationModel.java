@@ -4,24 +4,21 @@ public class BasePlusCommissionCompensationModel extends CompensationModel {
     private double baseSalary;
 
     public BasePlusCommissionCompensationModel(double grossSales, double commissionRate, double baseSalary) {
-        if(grossSales<0)
+        if (grossSales < 0)
             throw new IllegalArgumentException();
         else
             this.grossSales = grossSales;
 
-        if (commissionRate<0||commissionRate>1)
+        if (commissionRate < 0 || commissionRate > 1)
             throw new IllegalArgumentException();
         else
             this.commissionRate = commissionRate;
 
-        if(baseSalary<0)
+        if (baseSalary < 0)
             throw new IllegalArgumentException();
         else
             this.baseSalary = baseSalary;
     }
-
-
-
 
     public double getGrossSales() {
         return grossSales;
@@ -49,7 +46,7 @@ public class BasePlusCommissionCompensationModel extends CompensationModel {
 
     @Override
     public double earnings() {
-        return getBaseSalary()+getGrossSales()*getCommissionRate();
+        return getBaseSalary() + getGrossSales() * getCommissionRate();
     }//end of earnings
 
     @Override

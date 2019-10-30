@@ -4,7 +4,8 @@ public class Employee {
     private final String socialSecurityNumber;
     CompensationModel compensationModel;
 
-    public Employee(String firstName, String lastName, String socialSecurityNumber, CompensationModel compensationModel) {
+    public Employee(String firstName, String lastName, String socialSecurityNumber,
+                    CompensationModel compensationModel) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.socialSecurityNumber = socialSecurityNumber;
@@ -27,23 +28,23 @@ public class Employee {
         return compensationModel;
     }
 
-    public void changeCompensationModel(double grossSales,double commissionRate,double baseSalary) {
-        if(compensationModel instanceof CommissionCompensationModel)
-            this.compensationModel=new BasePlusCommissionCompensationModel(grossSales,commissionRate,baseSalary);
+    public void changeCompensationModel(double grossSales, double commissionRate, double baseSalary) {
+        if (compensationModel instanceof CommissionCompensationModel)
+            this.compensationModel = new BasePlusCommissionCompensationModel(grossSales, commissionRate, baseSalary);
 
         else if (compensationModel instanceof BasePlusCommissionCompensationModel)
-            this.compensationModel=new CommissionCompensationModel(grossSales,commissionRate);
+            this.compensationModel = new CommissionCompensationModel(grossSales, commissionRate);
     }//end of setCompensationModel
 
-    public double earnings(){
+    public double earnings() {
         return compensationModel.earnings();
     }//end of earnings
 
     @Override
     public String toString() {
-        return "Name: "+getFirstName()
-                +"\nSurname: "+getLastName()
-                +"\nSocial security Number: "+getSocialSecurityNumber()
-                +"\nCompensation model: "+getCompensationModel();
+        return "Name: " + getFirstName()
+                + "\nSurname: " + getLastName()
+                + "\nSocial security Number: " + getSocialSecurityNumber()
+                + "\nCompensation model: " + getCompensationModel();
     }
 }//end of class
