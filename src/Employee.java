@@ -28,13 +28,13 @@ public class Employee {
         return compensationModel;
     }
 
-    public void changeCompensationModel(double grossSales, double commissionRate, double baseSalary) {
-        if (compensationModel instanceof CommissionCompensationModel)
-            this.compensationModel = new BasePlusCommissionCompensationModel(grossSales, commissionRate, baseSalary);
+    public void setToCommissionCompensationModel(double grossSales, double commissionRate){
+        this.compensationModel=new CommissionCompensationModel(grossSales,commissionRate);
+    }//end of setToCommissionCompensationModel
 
-        else if (compensationModel instanceof BasePlusCommissionCompensationModel)
-            this.compensationModel = new CommissionCompensationModel(grossSales, commissionRate);
-    }//end of setCompensationModel
+    public void setToBasePlusCommissionCompensationModel(double grossSales, double commissionRate, double baseSalary){
+        this.compensationModel=new BasePlusCommissionCompensationModel(grossSales,commissionRate, baseSalary);
+    }//end of setToBasePlusCommissionCompensationModel
 
     public double earnings() {
         return compensationModel.earnings();

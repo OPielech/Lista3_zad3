@@ -14,8 +14,8 @@ public class Test {
         System.out.println(e2.toString());
         System.out.println("Earnings: " + e2.earnings());
 
-        e1.changeCompensationModel(10000, 0.5, 1000);
-        e2.changeCompensationModel(10000, 0.5, 1000);
+        e1.setToBasePlusCommissionCompensationModel(10000,0.5,1000);
+        e2.setToCommissionCompensationModel(10000,0.5);
 
         System.out.println();
         System.out.println(e1.toString());
